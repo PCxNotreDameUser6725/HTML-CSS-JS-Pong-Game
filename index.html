@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+
+        canvas {
+            border: 1px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="pongCanvas" width="800" height="400"></canvas>
+
+    <script>
+        // Base JavaScript for Pong game setup
+        const canvas = document.getElementById("pongCanvas");
+        const context = canvas.getContext("2d");
+
+        function drawRect(x, y, w, h, color) {
+            context.fillStyle = color;
+            context.fillRect(x, y, w, h);
+        }
+
+        function drawCircle(x, y, radius, color) {
+            context.fillStyle = color;
+            context.beginPath();
+            context.arc(x, y, radius, 0, Math.PI * 2, false);
+            context.closePath();
+            context.fill();
+        }
+
+        drawRect(0, 0, canvas.width, canvas.height, "#000"); // Draw black background
+        drawRect(10, canvas.height / 2 - 50, 10, 100, "#fff"); // Draw left paddle
+        drawRect(canvas.width - 20, canvas.height / 2 - 50, 10, 100, "#fff"); // Draw right paddle
+        drawCircle(canvas.width / 2, canvas.height / 2, 10, "#fff"); // Draw ball
+
+        console.log("Pong setup complete");
+    </script>
+</body>
+
+</html>
